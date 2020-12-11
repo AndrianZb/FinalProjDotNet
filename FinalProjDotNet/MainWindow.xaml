@@ -17,8 +17,8 @@
 
 
         <DataGrid SelectionMode="single" Name="myDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="229" IsReadOnly="True" Margin="26,89,0,0" VerticalAlignment="Top" Width="630" RowHeaderWidth="0" RowHeight="20" >
-            <!--<DataGrid.Columns >
-                <DataGridTemplateColumn>
+            <DataGrid.Columns >
+                <!--<DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <RadioButton Name="selectRow" Checked="selectRow_Checked" />
