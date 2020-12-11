@@ -14,7 +14,7 @@ namespace FinalProjDotNet
         public string PhoneNum { get; set; }
         public string Email { get; set; }
 
-        public string toString()
+        public string ToString()
         {
             return  FirstName + " " + LastName + " " + PhoneNum + " " + Email;
         }

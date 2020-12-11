@@ -51,25 +51,39 @@ namespace FinalProjDotNet
 
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
-                    fileContent = reader.ReadToEnd();
+                    char delims = '\n';
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        //test.Content = line;
+                        List<string> data = new List<string>();
+
+                        data.Add(line.Split(',')[0]);
+                        data.Add(line.Split(',')[1]);
+                        data.Add(line.Split(',')[2]);
+                        data.Add(line.Split(',')[3].Split(delims)[0]);
+                        
+
+                        contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
+                    }
                 }
                 //test.Content = fileContent;
-                int counter = 0;
-                char delims = '\n';
+               
 
-                while (fileContent.Split(delims)[counter] != null) {
-                    string line = fileContent.Split(delims)[counter];
+                //while(fileContent.Split(delims)[counter] != null) {
+                //    //while(counter <3) {
+                //    string line = fileContent.Split(delims)[counter];
+                //    test.Content = line;
+                //    List<string> data = new List<string>();
 
-                    List<string> data = new List<string>();
-
-                    data.Add(line.Split(',')[0]);
-                    data.Add(line.Split(',')[1]);
-                    data.Add(line.Split(',')[2]);
-                    data.Add(line.Split(',')[3]);
+                //    data.Add(line.Split(',')[0]);
+                //    data.Add(line.Split(',')[1]);
+                //    data.Add(line.Split(',')[2]);
+                //    data.Add(line.Split(',')[3]);
                    
-                    contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
-                    counter++;
-                }
+                //    contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
+                //    counter++;
+                //}
                 
                 //foreach(var x in contacts)
                 //{
@@ -78,9 +92,9 @@ namespace FinalProjDotNet
 
                 //}
                 
-                //test.Content = contacts[0].ToString();
-                //test1.Content = contacts[1].ToString();
-                //test2.Content = contacts[2].ToString();
+                test.Content = contacts[0].ToString();
+                test1.Content = contacts[1].ToString();
+                test2.Content = contacts[2].ToString();
 
 
                 //ContactsCreator line = new ContactsCreator(booty);
