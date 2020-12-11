@@ -1,0 +1,22 @@
+﻿<Window x:Class="FinalProjDotNet.PopUpView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProjDotNet"
+        mc:Ignorable="d"
+        Title="PopUpView" Height="300" Width="300">
+    <Grid>
+        <Label Content="User with Id:" HorizontalAlignment="center"  VerticalAlignment="Top" Margin="108,35,108,0" />
+        <Label Name="id" Content="" HorizontalAlignment="Left" Margin="189,35,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="First Name: " HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top"/>
+        <Label Name="firstName" Content="" HorizontalAlignment="Left" Margin="99,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.685,-3.13"/>
+        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="21,127,0,0" VerticalAlignment="Top"/>
+        <Label Name="lastName" Content="" HorizontalAlignment="Left" Margin="98,127,0,0" VerticalAlignment="Top"/>
+        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="21,158,0,0" VerticalAlignment="Top"/>
+        <Label Name="phoneNumber" Content="" HorizontalAlignment="Left" Margin="122,158,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email: " HorizontalAlignment="Left" Margin="21,189,0,0" VerticalAlignment="Top"/>
+        <Label Name="email" Content="" HorizontalAlignment="Left" Margin="70,189,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
