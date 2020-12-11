@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Open File" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="95" Height="36" Name="OpenFile" Click="OpenFile_Click"/>
-        <Button Content="Save File" HorizontalAlignment="Left" Margin="154,30,0,0" VerticalAlignment="Top" Width="95" Height="36" x:Name="OpenFile_Copy" Click="SaveFile_Click"/>
+        <Button Content="Save File" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="95" Height="36" Name="OpenFile" Click="OpenFile_Click"/>
+        <Button Content="Open File" HorizontalAlignment="Left" Margin="154,30,0,0" VerticalAlignment="Top" Width="95" Height="36" x:Name="OpenFile_Copy" Click="SaveFile_Click"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="701,126,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="View" HorizontalAlignment="Left" Margin="701,157,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Delete" HorizontalAlignment="Left" Margin="701,89,0,0" VerticalAlignment="Top" Width="75"/>
