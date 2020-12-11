@@ -26,7 +26,7 @@ namespace FinalProjDotNet
         {
             InitializeComponent();
         }
-
+        private List<ContactsCreator> contacts = new List<ContactsCreator>();
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
 
@@ -39,13 +39,58 @@ namespace FinalProjDotNet
             
             openFileDialog.InitialDirectory = "c:\\";
             openFileDialog.RestoreDirectory = true;
+
+ 
             if (openFileDialog.ShowDialog() == true)
             {
+                var fileContent = string.Empty;
+                //var myText = new StreamReader(openFileDialog.FileName);
+                Console.WriteLine("test");
+                //test.Content = myText;
+                var fileStream = openFileDialog.OpenFile();
 
-                var myText = File.ReadAllText(openFileDialog.FileName);
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    fileContent = reader.ReadToEnd();
+                }
+                //test.Content = fileContent;
+                int counter = 0;
+                char delims = '\n';
+
+                while (counter < 3) {
+                    string line = fileContent.Split(delims)[counter];
+
+                    List<string> data = new List<string>();
+
+                    data.Add(line.Split(',')[0]);
+                    data.Add(line.Split(',')[1]);
+                    data.Add(line.Split(',')[2]);
+                    data.Add(line.Split(',')[3]);
+                   
+                   
+                    test1.Content = data[0];
+                    test2.Content = data[3];
+                    contacts.Add(new ContactsCreator(data[0], data[1], data[2], data[3]));
+                    counter++;
+                }
+                
+                //foreach(var x in contacts)
+                //{
+                //    test1.Content=data[0];
+                   
+
+                //}
+                
+                //test.Content = contacts[0].ToString();
+                //test1.Content = contacts[1].ToString();
+                //test2.Content = contacts[2].ToString();
+
+
+                //ContactsCreator line = new ContactsCreator(booty);
+
+                //Console.WriteLine();
             }
 
-          
 
 
         }
@@ -53,11 +98,11 @@ namespace FinalProjDotNet
 
         private void SaveFile_Click(object sender, RoutedEventArgs e)
         {
-            //maybe add filter later
             //title would be good.
             //validate names - > put constraints 
-
+           
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV files | *.csv;*.txt";
             if (saveFileDialog.ShowDialog() == true)
             {
                 File.WriteAllText(saveFileDialog.FileName, "Line 1\r\nLine2");

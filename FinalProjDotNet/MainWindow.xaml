@@ -13,6 +13,9 @@
         <Button Content="View" HorizontalAlignment="Left" Margin="701,157,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Delete" HorizontalAlignment="Left" Margin="701,89,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Edit" HorizontalAlignment="Left" Margin="701,53,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Name="test" Content="" HorizontalAlignment="Left" Margin="19,310,0,0" VerticalAlignment="Top" Width="743"/>
+        <Label Name="test1" Content="" HorizontalAlignment="Left" Margin="19,336,0,0" VerticalAlignment="Top" Width="720"/>
+        <Label Name="test2" Content="" HorizontalAlignment="Left" Margin="26,367,0,0" VerticalAlignment="Top" Width="727"/>
 
     </Grid>
 </Window>
