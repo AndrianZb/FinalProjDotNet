@@ -58,17 +58,29 @@ namespace FinalProjDotNet
                         //test.Content = line;
                         List<string> data = new List<string>();
 
-                        data.Add(line.Split(',')[0]);
-                        data.Add(line.Split(',')[1]);
-                        data.Add(line.Split(',')[2]);
-                        data.Add(line.Split(',')[3].Split(delims)[0]);
-
-
-                        contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
-                    }
+                    data.Add(line.Split(',')[0]);
+                    data.Add(line.Split(',')[1]);
+                    data.Add(line.Split(',')[2]);
+                    data.Add(line.Split(',')[3]);
+                   
+                   
+                    test1.Content = data[0];
+                    test2.Content = data[3];
+                    contacts.Add(new ContactsCreator(data[0], data[1], data[2], data[3]));
+                    counter++;
                 }
+                
+                //foreach(var x in contacts)
+                //{
+                //    test1.Content=data[0];
+                   
 
-                myDataGrid.ItemsSource=contacts;
+                //}
+                
+                //test.Content = contacts[0].ToString();
+                //test1.Content = contacts[1].ToString();
+                //test2.Content = contacts[2].ToString();
+
 
             }
 
