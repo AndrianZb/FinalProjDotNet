@@ -25,11 +25,11 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>-->
-                <DataGridTextColumn x:Name="id" Header="Id" Binding="{Binding Path=Id}" MaxWidth="30" MinWidth="30"/>
-                <DataGridTextColumn x:Name="firstName" Header="First Name" Binding="{Binding Path= FirstName}" MaxWidth="120" MinWidth="120" />
-                <DataGridTextColumn x:Name="lastName" Header="Last Name" Binding="{Binding Path=LastName}" MaxWidth="120" MinWidth="120" />
-                <DataGridTextColumn x:Name="phoneNum" Header="Phone Number" Binding="{Binding Path=PhoneNum}" MaxWidth="100" MinWidth="100" />
-                <DataGridTextColumn x:Name="email" Header="Email" Binding="{Binding Path=Email}" MaxWidth="250" MinWidth="250" />
+                <DataGridTextColumn x:Name="id" Header="Id" Binding="{Binding Id}" MaxWidth="30" MinWidth="30"/>
+                <DataGridTextColumn x:Name="firstName" Header="First Name" Binding="{Binding FirstName}" MaxWidth="120" MinWidth="120" />
+                <DataGridTextColumn x:Name="lastName" Header="Last Name" Binding="{Binding LastName}" MaxWidth="120" MinWidth="120" />
+                <DataGridTextColumn x:Name="phoneNum" Header="Phone Number" Binding="{Binding PhoneNum}" MaxWidth="100" MinWidth="100" />
+                <DataGridTextColumn x:Name="email" Header="Email" Binding="{Binding Email}" MaxWidth="250" MinWidth="250" />
 
             </DataGrid.Columns>
         </DataGrid>

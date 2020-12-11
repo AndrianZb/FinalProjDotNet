@@ -29,11 +29,16 @@ namespace FinalProjDotNet
         }
         // list for fields of the wpf / database
         private List<ContactsCreator> contacts = new List<ContactsCreator>();
-        private List<string> viewInfo = new List<string>();
+        //private List<string> viewInfo = new List<string>();
 
+        
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-
+            if (contacts.Any())
+            {
+                contacts.Clear();
+            }
+            
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "CSV files (*.csv;*.txt)|*.csv;*.txt|All Files (*.*)|*.*";
@@ -64,13 +69,17 @@ namespace FinalProjDotNet
                         data.Add(line.Split(',')[3].Split(delims)[0]);
 
                         contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
+                        //openFileDialog.Dispose();
                     }
                 }
-
             }
+            
             //link WPF with list
+            myDataGrid.ItemsSource = null;
             myDataGrid.ItemsSource = contacts;
-        }
+            }
+            
+        
         
 
         private void SaveFile_Click(object sender, RoutedEventArgs e)
@@ -105,7 +114,6 @@ namespace FinalProjDotNet
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
-            
             PopUpView secondWindow = new PopUpView();
             //PopUpView secondWindow = new PopUpView(viewInfo[0], viewInfo[1], viewInfo[2], viewInfo[3], viewInfo[4]);
             secondWindow.Show();
@@ -133,5 +141,6 @@ namespace FinalProjDotNet
         //    }
         //}
 
-        }
+        
     }
+}
