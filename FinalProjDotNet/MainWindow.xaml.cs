@@ -31,16 +31,16 @@ namespace FinalProjDotNet
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-          
+
 
 
             openFileDialog.Filter = "CSV files (*.csv;*.txt)|*.csv;*.txt|All Files (*.*)|*.*";
             //should we add specification for initial directory? (Not required)
-            
+
             openFileDialog.InitialDirectory = "c:\\";
             openFileDialog.RestoreDirectory = true;
 
- 
+
             if (openFileDialog.ShowDialog() == true)
             {
                 var fileContent = string.Empty;
@@ -58,42 +58,28 @@ namespace FinalProjDotNet
                         //test.Content = line;
                         List<string> data = new List<string>();
 
-                    data.Add(line.Split(',')[0]);
-                    data.Add(line.Split(',')[1]);
-                    data.Add(line.Split(',')[2]);
-                    data.Add(line.Split(',')[3]);
-                   
-                   
-                    test1.Content = data[0];
-                    test2.Content = data[3];
-                    contacts.Add(new ContactsCreator(data[0], data[1], data[2], data[3]));
-                    counter++;
+                        data.Add(line.Split(',')[0]);
+                        data.Add(line.Split(',')[1]);
+                        data.Add(line.Split(',')[2]);
+                        data.Add(line.Split(',')[3].Split(delims)[0]);
+
+
+                        contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
+                    }
                 }
-                
-                //foreach(var x in contacts)
-                //{
-                //    test1.Content=data[0];
-                   
-
-                //}
-                
-                //test.Content = contacts[0].ToString();
-                //test1.Content = contacts[1].ToString();
-                //test2.Content = contacts[2].ToString();
-
 
             }
 
-
+            myDataGrid.ItemsSource = contacts;
 
         }
-      
+
 
         private void SaveFile_Click(object sender, RoutedEventArgs e)
         {
             //title would be good.
             //validate names - > put constraints 
-           
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "CSV files | *.csv;*.txt";
             if (saveFileDialog.ShowDialog() == true)
