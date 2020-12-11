@@ -70,21 +70,6 @@ namespace FinalProjDotNet
 
                 myDataGrid.ItemsSource=contacts;
 
-                //foreach(var x in contacts)
-                //{
-                //    test1.Content=data[0];
-
-
-                //}
-
-                //test.Content = contacts[0].ToString();
-                //test1.Content = contacts[1].ToString();
-                //test2.Content = contacts[2].ToString();
-
-
-                //ContactsCreator line = new ContactsCreator(booty);
-
-                //Console.WriteLine();
             }
 
 
