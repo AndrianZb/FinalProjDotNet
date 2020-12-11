@@ -57,7 +57,7 @@ namespace FinalProjDotNet
                 int counter = 0;
                 char delims = '\n';
 
-                while (counter < 3) {
+                while (fileContent.Split(delims)[counter] != null) {
                     string line = fileContent.Split(delims)[counter];
 
                     List<string> data = new List<string>();
@@ -67,10 +67,7 @@ namespace FinalProjDotNet
                     data.Add(line.Split(',')[2]);
                     data.Add(line.Split(',')[3]);
                    
-                   
-                    test1.Content = data[0];
-                    test2.Content = data[3];
-                    contacts.Add(new ContactsCreator(data[0], data[1], data[2], data[3]));
+                    contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
                     counter++;
                 }
                 

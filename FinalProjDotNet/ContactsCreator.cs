@@ -14,21 +14,9 @@ namespace FinalProjDotNet
         public string PhoneNum { get; set; }
         public string Email { get; set; }
 
-        //private string str;
-
-        public ContactsCreator() { }
-        public ContactsCreator(string f, string l, string p, string e)
-        {
-            FirstName = f;
-            LastName = l;
-            PhoneNum = p;
-            Email = e;
-        }
-
         public string toString()
         {
             return  FirstName + " " + LastName + " " + PhoneNum + " " + Email;
-           
         }
         
     }
