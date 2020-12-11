@@ -34,10 +34,11 @@ namespace FinalProjDotNet
           
 
 
-            openFileDialog.Filter = "CSV files (*.csv;*.txt)|All Files (*.*)";
+            openFileDialog.Filter = "CSV files (*.csv;*.txt)|*.csv;*.txt|All Files (*.*)|*.*";
             //should we add specification for initial directory? (Not required)
-            //openFileDialog.InitialDirectory = @"insertdirectoryhere";
-          
+            
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == true)
             {
 
