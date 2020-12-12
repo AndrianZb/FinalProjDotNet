@@ -47,7 +47,19 @@ namespace FinalProjDotNet
             }
                 return dataList;
         }
-
+        public void Delete(int id)
+        {
+            using (var con = new SqlConnection(conString))
+            {
+                con.Open();
+                SqlCommand sc;
+                using (sc = new SqlCommand("Delete from Contacts where id=" + id, con))
+                {
+                    sc.ExecuteNonQuery();
+                }
+                //con.Close();
+            }
+        }
         public void DeleteAndUpdate(List<ContactsCreator> dataList)
         {
             using (var con = new SqlConnection(conString))

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -136,6 +137,16 @@ namespace FinalProjDotNet
             contacts = DBC.getData();
             myDataGrid.ItemsSource = null;
             myDataGrid.ItemsSource = contacts;
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            IList row = myDataGrid.SelectedItems;
+            foreach(ContactsCreator c in row)
+            {
+                DBC.Delete(c.Id);
+            }
+            UpdateData();
         }
 
         //trying to make a row selector !!!!!!!!!!!
