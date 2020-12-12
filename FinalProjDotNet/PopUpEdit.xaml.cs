@@ -19,9 +19,24 @@ namespace FinalProjDotNet
     /// </summary>
     public partial class PopUpEdit : Window
     {
+        List<ContactsCreator> contact = new List<ContactsCreator>();
+        DBConnection DBC = DBConnection.instance;
         public PopUpEdit()
         {
             InitializeComponent();
+        }
+
+        private void Edit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(idEdit.Text);
+
+            string[] arr = { fNameEdit.Text, lNameEdit.Text, pNumEdit.Text, emailEdit.Text };
+            DBC.Add(arr);
+            DBC.Delete(id);
+            contact = DBC.getData();
+            ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = null;
+            ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = contact;
+            this.Close();
         }
     }
 }

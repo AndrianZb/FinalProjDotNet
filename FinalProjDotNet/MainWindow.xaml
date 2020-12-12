@@ -16,7 +16,7 @@
         <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Margin="387,117,0,0" VerticalAlignment="Top" Width="75" Click="Add_Click" Height="20"/>
         <Button x:Name="view" Content="View" HorizontalAlignment="Right" Margin="387,163,0,0" VerticalAlignment="Top" Width="75" Click="View_Click" Height="20"/>
         <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Right" Margin="387,74,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Height="20"/>
-        <Button Content="Edit" HorizontalAlignment="Right" Margin="387,30,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button Content="Edit" HorizontalAlignment="Right" Margin="387,30,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Height="20"/>
         <Label Name="test" Content="" HorizontalAlignment="Right" Margin="81,337,-79,0" VerticalAlignment="Top" Width="539" Height="45" Grid.ColumnSpan="2"/>
 
 

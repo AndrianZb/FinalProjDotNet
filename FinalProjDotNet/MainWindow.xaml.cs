@@ -121,7 +121,7 @@ namespace FinalProjDotNet
         {
             PopUpView secondWindow = new PopUpView();
             IList row = myDataGrid.SelectedItems;
-            row.IndexOf(0);
+            
             foreach (ContactsCreator c in row)
             {
                 secondWindow.firstName.Content = c.FirstName;
@@ -156,6 +156,22 @@ namespace FinalProjDotNet
             }
             UpdateData();
         }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEdit editWindow = new PopUpEdit();
+            IList row = myDataGrid.SelectedItems;
+            foreach (ContactsCreator c in row)
+            {
+                editWindow.idEdit.Text = c.Id.ToString();
+                editWindow.fNameEdit.Text = c.FirstName;
+                editWindow.lNameEdit.Text = c.LastName;
+                editWindow.pNumEdit.Text = c.PhoneNum;
+                editWindow.emailEdit.Text = c.Email;
+            }
+            editWindow.Show();
+        }
+
 
         //trying to make a row selector !!!!!!!!!!!
         //private void selectRow_Checked(object sender, RoutedEventArgs e)
