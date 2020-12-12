@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PopUpEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PopUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +104,9 @@
   <ItemGroup>
     <Compile Include="PopUpAdd.xaml.cs">
       <DependentUpon>PopUpAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpEdit.xaml.cs">
+      <DependentUpon>PopUpEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="PopUpView.xaml.cs">
       <DependentUpon>PopUpView.xaml</DependentUpon>
