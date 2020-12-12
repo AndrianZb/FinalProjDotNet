@@ -5,24 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProjDotNet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="545.493" Loaded="Window_Loaded">
-    <Grid>
-        
+        Title="MainWindow" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" Height="534.902" Width="551.139" Background="#FFBDBDBD" >
+    <Grid Margin="5">
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
-        
-        <Button Content="Open File" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="95" Height="36" x:Name="OpenFile" Click="OpenFile_Click"/>
-        <Button Content="Save File" HorizontalAlignment="Left" Margin="154,30,0,0" VerticalAlignment="Top" Width="95" Height="36" x:Name="SaveFile" Click="SaveFile_Click"/>
-        <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Margin="0,192,28.5,0" VerticalAlignment="Top" Width="75" Click="Add_Click" Height="20" Grid.ColumnSpan="2"/>
-        <Button x:Name="view" Content="View" HorizontalAlignment="Right" Margin="0,238,28.5,0" VerticalAlignment="Top" Width="75" Click="View_Click" Height="20" Grid.ColumnSpan="2"/>
-        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Right" Margin="0,149,28.5,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Height="20" Grid.ColumnSpan="2"/>
-        <Button Content="Edit" HorizontalAlignment="Right" Margin="0,105,28.5,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Height="20" Grid.ColumnSpan="2"/>
-        
-        <Label Name="test" Content="" HorizontalAlignment="Right" Margin="81,337,-79,0" VerticalAlignment="Top" Width="539" Height="45" Grid.ColumnSpan="2"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
 
-        <DataGrid SelectionMode="single" Name="myDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="229" IsReadOnly="True" Margin="26,89,0,0" VerticalAlignment="Top"  RowHeaderWidth="0" RowHeight="20" Width="242" >
+        <Button Content="Open File" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="5,5,0,10" VerticalAlignment="Center" Width="180" Height="70" x:Name="OpenFile" Click="OpenFile_Click" FontSize="20" Background="#FF6C5C4F" Foreground="White"/>
+        <Button Content="Save File" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0,5,5,10" VerticalAlignment="Center" Width="180" Height="70" x:Name="SaveFile" Click="SaveFile_Click" FontSize="20" Background="#FF6C5C4F" Foreground="White"/>
+        <Button x:Name="Add" Grid.Column="2" Grid.Row="1" Content="Add" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="Add_Click" Height="50" FontSize="20" Background="#FF6C5C4F" Foreground="White"/>
+        <Button x:Name="view" Grid.Column="2" Grid.Row="2"  Content="View" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="View_Click" Height="50" FontSize="20" Background="#FF6C5C4F" Foreground="White" />
+        <Button x:Name="Delete" Grid.Column="2" Grid.Row="3" Content="Delete" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="Delete_Click" Height="50" FontSize="20" Background="#FF6C5C4F" Foreground="White"/>
+        <Button Content="Edit" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="Edit_Click" Height="50" FontSize="20" Background="#FF6C5C4F" Foreground="White"/>
+
+
+
+
+        <!--<Label Name="test" Content="" HorizontalAlignment="Right" Margin="81,337,-79,0" VerticalAlignment="Top" Width="539" Height="45" Grid.ColumnSpan="2"/>
+-->
+
+
+        <DataGrid SelectionMode="single" 
+                  Name="myDataGrid"
+                  Grid.Column="0"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="4"
+                  AutoGenerateColumns="False" 
+                  HorizontalAlignment="Center" 
+                  Height="385" 
+                  IsReadOnly="True" 
+                  Margin="10" 
+                  VerticalAlignment="Center"  
+                  FontSize="20" 
+                  Width="394" Foreground="#FF764949" Background="White" FontWeight="Bold" >
 
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
@@ -32,8 +59,8 @@
 
             <DataGrid.Columns >
                 <DataGridTextColumn x:Name="id" Header="Id" Binding="{Binding Id}" MaxWidth="30" MinWidth="30" Visibility="Hidden"/>
-                <DataGridTextColumn x:Name="firstName" Header="First Name" Binding="{Binding FirstName}" MaxWidth="120" MinWidth="120" />
-                <DataGridTextColumn x:Name="lastName" Header="Last Name" Binding="{Binding LastName}" MaxWidth="120" MinWidth="120" />
+                <DataGridTextColumn x:Name="firstName" Header="First Name" Binding="{Binding FirstName}" Width="195" />
+                <DataGridTextColumn x:Name="lastName" Header="Last Name" Binding="{Binding LastName}" Width="195" />
                 <DataGridTextColumn x:Name="phoneNum" Header="Phone Number" Binding="{Binding PhoneNum}" MaxWidth="100" MinWidth="100" Visibility="Hidden" />
                 <DataGridTextColumn x:Name="email" Header="Email" Binding="{Binding Email}" MaxWidth="250" MinWidth="250" Visibility="Hidden" />
 

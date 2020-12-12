@@ -5,23 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProjDotNet"
         mc:Ignorable="d"
-        Title="PopUpAdd" Height="300" Width="300">
+        Title="PopUpAdd" Height="300" Width="324.344" Background="#FFBDBDBD">
     <Grid>
-        <Label Content="Add To Table" HorizontalAlignment="Left" Margin="101,18,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="First Name: " HorizontalAlignment="Left" Margin="24,56,0,0" VerticalAlignment="Top" Height="24" Width="74"/>
-        <TextBox x:Name="fNameAdd" HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
 
-        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top" Height="25" Width="82"/>
-        <TextBox x:Name="lNameAdd" HorizontalAlignment="Left" Margin="120,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="25" Width="148"/>
+        <Label Content="Add To Table" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="15" VerticalAlignment="Center" Width="236" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Historic" FontSize="20" FontWeight="Bold"/>
 
-        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="24,153,0,0" VerticalAlignment="Top" Height="24" Width="96"/>
-        <TextBox x:Name="pNumAdd" HorizontalAlignment="Left" Margin="120,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148"/>
+        <Label Content="First Name: " Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="74" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="fNameAdd" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center"/>
 
-        <Label Content="Email: " HorizontalAlignment="Left" Margin="24,197,0,0" VerticalAlignment="Top" Height="24" Width="74"/>
-        <TextBox x:Name="emailAdd" HorizontalAlignment="Left" Margin="120,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148"/>
-        
-        <Button x:Name="Add_Button" Content="Add" HorizontalAlignment="Left" Margin="212,239,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.862,0.546" Click="Add_Button_Click"/>
+        <Label Content="Last Name: " Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="25" Width="82" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="lNameAdd" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="25" Width="148" VerticalContentAlignment="Center"/>
+
+        <Label Content="Phone Number: " Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="96" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="pNumAdd" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center"/>
+
+        <Label Content="Email: " Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="74" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="emailAdd" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center"/>
+
+        <Button x:Name="Add_Button"  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Content="Add" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top" Width="75" Click="Add_Button_Click" Background="#FF6C5C4F" Foreground="White"/>
 
     </Grid>
 </Window>
