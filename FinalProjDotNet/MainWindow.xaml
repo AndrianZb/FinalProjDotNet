@@ -7,28 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="545.493" Loaded="Window_Loaded">
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
+        
         <Button Content="Open File" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="95" Height="36" x:Name="OpenFile" Click="OpenFile_Click"/>
         <Button Content="Save File" HorizontalAlignment="Left" Margin="154,30,0,0" VerticalAlignment="Top" Width="95" Height="36" x:Name="SaveFile" Click="SaveFile_Click"/>
-        <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Margin="387,117,0,0" VerticalAlignment="Top" Width="75" Click="Add_Click" Height="20"/>
-        <Button x:Name="view" Content="View" HorizontalAlignment="Right" Margin="387,163,0,0" VerticalAlignment="Top" Width="75" Click="View_Click" Height="20"/>
-        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Right" Margin="387,74,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Height="20"/>
-        <Button Content="Edit" HorizontalAlignment="Right" Margin="387,30,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Height="20"/>
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Margin="0,192,28.5,0" VerticalAlignment="Top" Width="75" Click="Add_Click" Height="20" Grid.ColumnSpan="2"/>
+        <Button x:Name="view" Content="View" HorizontalAlignment="Right" Margin="0,238,28.5,0" VerticalAlignment="Top" Width="75" Click="View_Click" Height="20" Grid.ColumnSpan="2"/>
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Right" Margin="0,149,28.5,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Height="20" Grid.ColumnSpan="2"/>
+        <Button Content="Edit" HorizontalAlignment="Right" Margin="0,105,28.5,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Height="20" Grid.ColumnSpan="2"/>
+        
         <Label Name="test" Content="" HorizontalAlignment="Right" Margin="81,337,-79,0" VerticalAlignment="Top" Width="539" Height="45" Grid.ColumnSpan="2"/>
 
 
         <DataGrid SelectionMode="single" Name="myDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="229" IsReadOnly="True" Margin="26,89,0,0" VerticalAlignment="Top"  RowHeaderWidth="0" RowHeight="20" Width="242" >
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
+
             <DataGrid.Columns >
-                <!--<DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <RadioButton Name="selectRow" Checked="selectRow_Checked" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
                 <DataGridTextColumn x:Name="id" Header="Id" Binding="{Binding Id}" MaxWidth="30" MinWidth="30" Visibility="Hidden"/>
                 <DataGridTextColumn x:Name="firstName" Header="First Name" Binding="{Binding FirstName}" MaxWidth="120" MinWidth="120" />
                 <DataGridTextColumn x:Name="lastName" Header="Last Name" Binding="{Binding LastName}" MaxWidth="120" MinWidth="120" />

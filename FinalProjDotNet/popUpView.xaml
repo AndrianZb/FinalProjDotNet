@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="PopUpView" Height="300" Width="300">
     <Grid>
-        <Label Content="User with Id:" HorizontalAlignment="center"  VerticalAlignment="Top" Margin="108,35,108,0" />
-        <Label Name="id" Content="" HorizontalAlignment="Left" Margin="189,35,0,0" VerticalAlignment="Top" Width="32"/>
+        <Label Content="Viewing user data" HorizontalAlignment="center"  VerticalAlignment="Top" Margin="91,35,79,0" Width="122" />
 
         <Label Content="First Name: " HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top"/>
         <Label Name="firstName" Content="" HorizontalAlignment="Left" Margin="99,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.685,-3.13" Width="183"/>

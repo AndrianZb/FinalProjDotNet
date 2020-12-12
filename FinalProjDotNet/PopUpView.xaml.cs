@@ -19,15 +19,9 @@ namespace FinalProjDotNet
     /// </summary>
     public partial class PopUpView : Window
     {
-        //public PopUpView(string i, string f, string l, string p, string e)
         public PopUpView()
         {
             InitializeComponent();
-            //id.Content = i;
-            //firstName.Content = f;
-            //lastName.Content = l;
-            //phoneNumber.Content = p;
-            //email.Content = e;
         }
     }
 }

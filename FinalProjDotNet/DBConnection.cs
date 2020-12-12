@@ -29,7 +29,6 @@ namespace FinalProjDotNet
                 con.Open();
                 SqlCommand sc = new SqlCommand("Select ID, FirstName, LastName, PhoneNum, Email from Contacts", con);
 
-
                 using (SqlDataReader sdr = sc.ExecuteReader())
                 {
                     while (sdr.Read())
@@ -45,7 +44,7 @@ namespace FinalProjDotNet
                     }
                 }
             }
-                return dataList;
+            return dataList;
         }
         public void Delete(int id)
         {
@@ -57,7 +56,6 @@ namespace FinalProjDotNet
                 {
                     sc.ExecuteNonQuery();
                 }
-                //con.Close();
             }
         }
         public void DeleteAndUpdate(List<ContactsCreator> dataList)

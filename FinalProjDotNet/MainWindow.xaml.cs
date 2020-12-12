@@ -1,21 +1,10 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FinalProjDotNet
 {
@@ -31,42 +20,39 @@ namespace FinalProjDotNet
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
+        // Load the data from the database into the datagrid
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateData();
-
         }
-        //private List<string> viewInfo = new List<string>();
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-            if (contacts.Any())
-            {
-                contacts.Clear();
-            }
-            
+            // open file window pops up to select a file
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "CSV files (*.csv;*.txt)|*.csv;*.txt|All Files (*.*)|*.*";
-            //openFileDialog.InitialDirectory = "C:\\Users\\mihaj\\Desktop\\debugProjectFolder";
             openFileDialog.InitialDirectory = "C:\\";
             openFileDialog.RestoreDirectory = true;
 
-            // Read file (.csv or .txt)
+            //  checks if a file was selected
             if (openFileDialog.ShowDialog() == true)
             {
-
+                // clears the data from the contacts list to fill it with new items
+                if (contacts.Any())
+                {
+                    contacts.Clear();
+                }
                 var fileStream = openFileDialog.OpenFile();
 
-                // Seperate lines of the file
+                // Read file (.csv or .txt)
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
+                    //Seperate lines of the file
                     char delims = '\n';
                     string line;
-
                     while ((line = reader.ReadLine()) != null)
                     {
                         //seperate each field of data and input into a list
@@ -77,18 +63,34 @@ namespace FinalProjDotNet
                         data.Add(line.Split(',')[2]);
                         data.Add(line.Split(',')[3].Split(delims)[0]);
 
+                        //add data to the contacts list
                         contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
-                        DBC.DeleteAndUpdate(contacts);
-
-                        UpdateData();
                     }
                 }
             }
+
+            // asks the user if he wants to add the data from his file or override the curent data
+            MessageBoxResult result = MessageBox.Show("Would you like to add the data to the database instead of overriding the current data?", "", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.No:
+                    DBC.DeleteAndUpdate(contacts);
+                    break;
+                case MessageBoxResult.Yes:
+                    foreach (var x in contacts)
+                    {
+                        string[] arr = { x.FirstName, x.LastName, x.PhoneNum, x.Email };
+                        DBC.Add(arr);
+                    }
+                    break;
+            }
+            UpdateData();
         }
-        
+
 
         private void SaveFile_Click(object sender, RoutedEventArgs e)
         {
+            //opens a window where the user can save the current fields odf the datagrid in a csv document
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
             saveFileDialog.Filter = "CSV files (*.csv;*.txt)|*.csv;*.txt|All Files (*.*)|*.*";
@@ -101,7 +103,7 @@ namespace FinalProjDotNet
             if (saveFileDialog.ShowDialog() == true)
             {
                 string text = "";
-                foreach(var x in DBC.getData())
+                foreach (var x in DBC.getData())
                 {
                     text += x.FirstName.ToString();
                     text += ",";
@@ -119,17 +121,11 @@ namespace FinalProjDotNet
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
-            PopUpView secondWindow = new PopUpView();
-            IList row = myDataGrid.SelectedItems;
-            
-            foreach (ContactsCreator c in row)
-            {
-                secondWindow.firstName.Content = c.FirstName;
-                secondWindow.lastName.Content = c.LastName;
-                secondWindow.phoneNumber.Content = c.PhoneNum;
-                secondWindow.email.Content = c.Email;
-            }
-            secondWindow.Show();
+            View();
+        }
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            View();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -142,7 +138,7 @@ namespace FinalProjDotNet
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             IList row = myDataGrid.SelectedItems;
-            foreach(ContactsCreator c in row)
+            foreach (ContactsCreator c in row)
             {
                 DBC.Delete(c.Id);
             }
@@ -176,6 +172,7 @@ namespace FinalProjDotNet
             else
             {
                 MessageBox.Show(" No rows were selected!", "WARNING");
+                editWindow.Close();
             }
         }
 
@@ -187,11 +184,19 @@ namespace FinalProjDotNet
             myDataGrid.ItemsSource = contacts;
         }
 
-        //bool TestForNullOrEmpty(string s)
-        //{
-        //    bool result;
-        //    result = s == null || s == string.Empty;
-        //    return result;
-        //}
+        public void View()
+        {
+            PopUpView secondWindow = new PopUpView();
+            IList row = myDataGrid.SelectedItems;
+
+            foreach (ContactsCreator c in row)
+            {
+                secondWindow.firstName.Content = c.FirstName;
+                secondWindow.lastName.Content = c.LastName;
+                secondWindow.phoneNumber.Content = c.PhoneNum;
+                secondWindow.email.Content = c.Email;
+            }
+            secondWindow.Show();
+        }
     }
 }
