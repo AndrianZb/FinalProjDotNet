@@ -8,15 +8,15 @@
         Title="PopUpView" Height="300" Width="300">
     <Grid>
         <Label Content="User with Id:" HorizontalAlignment="center"  VerticalAlignment="Top" Margin="108,35,108,0" />
-        <Label Name="id" Content="" HorizontalAlignment="Left" Margin="189,35,0,0" VerticalAlignment="Top"/>
+        <Label Name="id" Content="" HorizontalAlignment="Left" Margin="189,35,0,0" VerticalAlignment="Top" Width="32"/>
 
         <Label Content="First Name: " HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top"/>
-        <Label Name="firstName" Content="" HorizontalAlignment="Left" Margin="99,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.685,-3.13"/>
+        <Label Name="firstName" Content="" HorizontalAlignment="Left" Margin="99,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.685,-3.13" Width="183"/>
         <Label Content="Last Name: " HorizontalAlignment="Left" Margin="21,127,0,0" VerticalAlignment="Top"/>
-        <Label Name="lastName" Content="" HorizontalAlignment="Left" Margin="98,127,0,0" VerticalAlignment="Top"/>
+        <Label Name="lastName" Content="" HorizontalAlignment="Left" Margin="98,127,0,0" VerticalAlignment="Top" Width="184"/>
         <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="21,158,0,0" VerticalAlignment="Top"/>
-        <Label Name="phoneNumber" Content="" HorizontalAlignment="Left" Margin="122,158,0,0" VerticalAlignment="Top"/>
+        <Label Name="phoneNumber" Content="" HorizontalAlignment="Left" Margin="122,158,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Email: " HorizontalAlignment="Left" Margin="21,189,0,0" VerticalAlignment="Top"/>
-        <Label Name="email" Content="" HorizontalAlignment="Left" Margin="70,189,0,0" VerticalAlignment="Top"/>
+        <Label Name="email" Content="" HorizontalAlignment="Left" Margin="70,189,0,0" VerticalAlignment="Top" Width="212"/>
     </Grid>
 </Window>

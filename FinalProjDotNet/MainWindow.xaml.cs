@@ -23,15 +23,23 @@ namespace FinalProjDotNet
     /// </summary>
     public partial class MainWindow : Window
     {
+        // list for fields of the wpf / database
+        List<ContactsCreator> contacts = new List<ContactsCreator>();
+        DBConnection DBC = DBConnection.instance;
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
-        // list for fields of the wpf / database
-        private List<ContactsCreator> contacts = new List<ContactsCreator>();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateData();
+
+        }
         //private List<string> viewInfo = new List<string>();
 
-        
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
             if (contacts.Any())
@@ -42,8 +50,8 @@ namespace FinalProjDotNet
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "CSV files (*.csv;*.txt)|*.csv;*.txt|All Files (*.*)|*.*";
-            openFileDialog.InitialDirectory = "C:\\Users\\mihaj\\Desktop\\debugProjectFolder";
-            //openFileDialog.InitialDirectory = "C:\\";
+            //openFileDialog.InitialDirectory = "C:\\Users\\mihaj\\Desktop\\debugProjectFolder";
+            openFileDialog.InitialDirectory = "C:\\";
             openFileDialog.RestoreDirectory = true;
 
             // Read file (.csv or .txt)
@@ -69,17 +77,13 @@ namespace FinalProjDotNet
                         data.Add(line.Split(',')[3].Split(delims)[0]);
 
                         contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
-                        //openFileDialog.Dispose();
+                        DBC.DeleteAndUpdate(contacts);
+
+                        UpdateData();
                     }
                 }
             }
-            
-            //link WPF with list
-            myDataGrid.ItemsSource = null;
-            myDataGrid.ItemsSource = contacts;
-            }
-            
-        
+        }
         
 
         private void SaveFile_Click(object sender, RoutedEventArgs e)
@@ -96,7 +100,7 @@ namespace FinalProjDotNet
             if (saveFileDialog.ShowDialog() == true)
             {
                 string text = "";
-                foreach(var x in contacts)
+                foreach(var x in DBC.getData())
                 {
                     text += x.FirstName.ToString();
                     text += ",";
@@ -119,10 +123,25 @@ namespace FinalProjDotNet
             secondWindow.Show();
         }
 
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpAdd addWindow = new PopUpAdd();
+            addWindow.Show();
+            UpdateData();
+        }
+
+        // updates the data in the dataGrid with the new data from the DataBase
+        public void UpdateData()
+        {
+            contacts = DBC.getData();
+            myDataGrid.ItemsSource = null;
+            myDataGrid.ItemsSource = contacts;
+        }
+
         //trying to make a row selector !!!!!!!!!!!
         //private void selectRow_Checked(object sender, RoutedEventArgs e)
         //{
-            
+
         //    var checker = sender as RadioButton;
         //    //if(checker.IsChecked == true)
         //    var item = checker.DataContext as DataRowView;
@@ -141,6 +160,6 @@ namespace FinalProjDotNet
         //    }
         //}
 
-        
+
     }
 }
