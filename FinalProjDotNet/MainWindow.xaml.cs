@@ -139,14 +139,6 @@ namespace FinalProjDotNet
             UpdateData();
         }
 
-        // updates the data in the dataGrid with the new data from the DataBase
-        public void UpdateData()
-        {
-            contacts = DBC.getData();
-            myDataGrid.ItemsSource = null;
-            myDataGrid.ItemsSource = contacts;
-        }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             IList row = myDataGrid.SelectedItems;
@@ -160,6 +152,12 @@ namespace FinalProjDotNet
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             PopUpEdit editWindow = new PopUpEdit();
+            editWindow.idEdit.Text = null;
+            editWindow.fNameEdit.Text = null;
+            editWindow.lNameEdit.Text = null;
+            editWindow.pNumEdit.Text = null;
+            editWindow.emailEdit.Text = null;
+
             IList row = myDataGrid.SelectedItems;
             foreach (ContactsCreator c in row)
             {
@@ -169,32 +167,31 @@ namespace FinalProjDotNet
                 editWindow.pNumEdit.Text = c.PhoneNum;
                 editWindow.emailEdit.Text = c.Email;
             }
-            editWindow.Show();
+
+            //check if any row was selected at all
+            if (editWindow.fNameEdit.Text != "")
+            {
+                editWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show(" No rows were selected!", "WARNING");
+            }
         }
 
+        // updates the data in the dataGrid with the new data from the DataBase
+        public void UpdateData()
+        {
+            contacts = DBC.getData();
+            myDataGrid.ItemsSource = null;
+            myDataGrid.ItemsSource = contacts;
+        }
 
-        //trying to make a row selector !!!!!!!!!!!
-        //private void selectRow_Checked(object sender, RoutedEventArgs e)
+        //bool TestForNullOrEmpty(string s)
         //{
-
-        //    var checker = sender as RadioButton;
-        //    //if(checker.IsChecked == true)
-        //    var item = checker.DataContext as DataRowView;
-        //    Object[] column = item.Row.ItemArray;
-        //    test.Content = column[0].ToString();
-
-        //    if (column[0].ToString() != viewInfo[0])
-        //    {
-        //        for (int i = 0; i < 4; i++)
-        //        {
-        //            viewInfo.Add(column[i].ToString());
-        //            viewInfo.Add(column[i].ToString());
-        //            viewInfo.Add(column[i].ToString());
-        //            viewInfo.Add(column[i].ToString());
-        //        }
-        //    }
+        //    bool result;
+        //    result = s == null || s == string.Empty;
+        //    return result;
         //}
-
-
     }
 }
