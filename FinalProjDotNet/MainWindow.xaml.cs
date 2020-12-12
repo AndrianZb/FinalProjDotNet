@@ -120,7 +120,15 @@ namespace FinalProjDotNet
         private void View_Click(object sender, RoutedEventArgs e)
         {
             PopUpView secondWindow = new PopUpView();
-            //PopUpView secondWindow = new PopUpView(viewInfo[0], viewInfo[1], viewInfo[2], viewInfo[3], viewInfo[4]);
+            IList row = myDataGrid.SelectedItems;
+            row.IndexOf(0);
+            foreach (ContactsCreator c in row)
+            {
+                secondWindow.firstName.Content = c.FirstName;
+                secondWindow.lastName.Content = c.LastName;
+                secondWindow.phoneNumber.Content = c.PhoneNum;
+                secondWindow.email.Content = c.Email;
+            }
             secondWindow.Show();
         }
 
