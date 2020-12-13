@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProjDotNet"
-        xmlns:wpfanimated="http://wpfanimatedgif.codeplex.com"
+        xmlns:wpfanimated = "http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="MainWindow" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" Height="550" Width="535" MinHeight="550" MinWidth="535" MaxHeight="550" MaxWidth="5535">
 
