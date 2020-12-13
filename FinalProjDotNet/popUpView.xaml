@@ -7,15 +7,31 @@
         mc:Ignorable="d"
         Title="PopUpView" Height="300" Width="300">
     <Grid>
-        <Label Content="Viewing user data" HorizontalAlignment="center"  VerticalAlignment="Top" Margin="91,35,79,0" Width="122" />
+        <Label Content="Viewing user data" HorizontalAlignment="center"  VerticalAlignment="Top" Margin="98,10,88,0" Width="106" Background="Black" Foreground="White" />
 
-        <Label Content="First Name: " HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top"/>
-        <Label Name="firstName" Content="" HorizontalAlignment="Left" Margin="99,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.685,-3.13" Width="183"/>
-        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="21,127,0,0" VerticalAlignment="Top"/>
-        <Label Name="lastName" Content="" HorizontalAlignment="Left" Margin="98,127,0,0" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="21,158,0,0" VerticalAlignment="Top"/>
-        <Label Name="phoneNumber" Content="" HorizontalAlignment="Left" Margin="122,158,0,0" VerticalAlignment="Top" Width="160"/>
-        <Label Content="Email: " HorizontalAlignment="Left" Margin="21,189,0,0" VerticalAlignment="Top"/>
-        <Label Name="email" Content="" HorizontalAlignment="Left" Margin="70,189,0,0" VerticalAlignment="Top" Width="212"/>
+        <Label Content="First Name: " HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top" Background="#FF0A4364" Foreground="White"/>
+        <Label Name="firstName" Content="" HorizontalAlignment="Left" Margin="99,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.685,-3.13" Width="183">
+            <Label.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="21,127,0,0" VerticalAlignment="Top"  Background="#FF0A4364" Foreground="White"/>
+        <Label Name="lastName" Content="" HorizontalAlignment="Left" Margin="98,127,0,0" VerticalAlignment="Top" Width="184">
+            <Label.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="21,158,0,0" VerticalAlignment="Top"  Background="#FF0A4364" Foreground="White"/>
+        <Label Name="phoneNumber" Content="" HorizontalAlignment="Left" Margin="122,158,0,0" VerticalAlignment="Top" Width="160">
+            <Label.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Email: " HorizontalAlignment="Left" Margin="21,189,0,0" VerticalAlignment="Top"  Background="#FF0A4364" Foreground="White"/>
+        <Label Name="email" Content="" HorizontalAlignment="Left" Margin="70,189,0,0" VerticalAlignment="Top" Width="212">
+            <Label.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </Label.Background>
+        </Label>
     </Grid>
 </Window>
