@@ -67,24 +67,28 @@ namespace FinalProjDotNet
                         contacts.Add(new ContactsCreator() { FirstName = data[0], LastName = data[1], PhoneNum = data[2], Email = data[3] });
                     }
                 }
+                // asks the user if he wants to add the data from his file or override the curent data
+                MessageBoxResult result = MessageBox.Show("Would you like to add the data to the database instead of overriding the current data?", "", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.No:
+                        DBC.DeleteAndUpdate(contacts);
+                        break;
+                    case MessageBoxResult.Yes:
+                        foreach (var x in contacts)
+                        {
+                            string[] arr = { x.FirstName, x.LastName, x.PhoneNum, x.Email };
+                            DBC.Add(arr);
+                        }
+                        break;
+                }
+                UpdateData();
+            } 
+            else
+            {
+                MessageBox.Show("No file selected!", "Alert");
             }
 
-            // asks the user if he wants to add the data from his file or override the curent data
-            MessageBoxResult result = MessageBox.Show("Would you like to add the data to the database instead of overriding the current data?", "", MessageBoxButton.YesNo);
-            switch (result)
-            {
-                case MessageBoxResult.No:
-                    DBC.DeleteAndUpdate(contacts);
-                    break;
-                case MessageBoxResult.Yes:
-                    foreach (var x in contacts)
-                    {
-                        string[] arr = { x.FirstName, x.LastName, x.PhoneNum, x.Email };
-                        DBC.Add(arr);
-                    }
-                    break;
-            }
-            UpdateData();
         }
 
 
@@ -137,40 +141,51 @@ namespace FinalProjDotNet
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Confirmation", MessageBoxButton.YesNo);
-            switch (result)
+            bool checker = false;
+            IList row = myDataGrid.SelectedItems;
+            
+            foreach (ContactsCreator c in row)
             {
-                case MessageBoxResult.No:
-                    MessageBox.Show("Contact not deleted", "Alert");
-                    break;
-                case MessageBoxResult.Yes:
-                    IList row = myDataGrid.SelectedItems;
-                    foreach (ContactsCreator c in row)
-                    {
-                        DBC.Delete(c.Id);
-                    }
-                    UpdateData();
-                    break;
-            }       
+                if (c.Id.ToString() != null)
+                {
+                    checker = true;
+                }
+                    
+            }
+
+            if (checker)
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Confirmation", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.No:
+                        MessageBox.Show("Contact not deleted", "Alert");
+                        break;
+                    case MessageBoxResult.Yes:
+                        foreach (ContactsCreator c in row)
+                        {
+                            DBC.Delete(c.Id);
+                        }
+                        UpdateData();
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show(" No rows were selected!", "WARNING");
+            }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             PopUpEdit editWindow = new PopUpEdit();
-            editWindow.idEdit.Text = null;
             editWindow.fNameEdit.Text = null;
-            editWindow.lNameEdit.Text = null;
-            editWindow.pNumEdit.Text = null;
-            editWindow.emailEdit.Text = null;
 
             IList row = myDataGrid.SelectedItems;
             foreach (ContactsCreator c in row)
             {
-                editWindow.idEdit.Text = c.Id.ToString();
                 editWindow.fNameEdit.Text = c.FirstName;
                 editWindow.lNameEdit.Text = c.LastName;
-                editWindow.pNumEdit.Text = c.PhoneNum;
-                editWindow.emailEdit.Text = c.Email;
             }
 
             //check if any row was selected at all
@@ -195,17 +210,29 @@ namespace FinalProjDotNet
 
         public void View()
         {
+            
             PopUpView secondWindow = new PopUpView();
-            IList row = myDataGrid.SelectedItems;
+            secondWindow.firstName.Content = null;
 
+            IList row = myDataGrid.SelectedItems;
             foreach (ContactsCreator c in row)
             {
                 secondWindow.firstName.Content = c.FirstName;
                 secondWindow.lastName.Content = c.LastName;
-                secondWindow.phoneNumber.Content = c.PhoneNum;
-                secondWindow.email.Content = c.Email;
+                secondWindow.phoneNumber.Content = c.FirstName;
+                secondWindow.email.Content = c.LastName;
             }
-            secondWindow.Show();
+
+            //check if any row was selected at all
+            if (secondWindow.firstName.Content != null)
+            {
+                secondWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show(" No rows were selected!", "WARNING");
+                secondWindow.Close();
+            }
         }
     }
 }
