@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:FinalProjDotNet"
         mc:Ignorable="d"
         Title="PopUpAdd" Height="300" Width="324.344" Background="#FFBDBDBD">
-    
+
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
@@ -34,29 +34,29 @@
             </Label.BorderBrush>
         </Label>
 
-        <Label Content="First Name: " Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="74" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
+        <Label Content="First Name: " Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="auto" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
         <TextBox x:Name="fNameAdd" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center">
             <TextBox.Background>
                 <SolidColorBrush Color="#FFF06B0F" Opacity="0.5"/>
             </TextBox.Background>
         </TextBox>
 
-        <Label Content="Last Name: " Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="25" Width="82" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
+        <Label Content="Last Name: " Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="auto" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
         <TextBox x:Name="lNameAdd" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="25" Width="148" VerticalContentAlignment="Center">
             <TextBox.Background>
                 <SolidColorBrush Color="#FFF06B0F" Opacity="0.5"/>
             </TextBox.Background>
         </TextBox>
 
-        <Label Content="Phone Number: " Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="96" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
+        <Label Content="Phone Number: " Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="auto" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
         <TextBox x:Name="pNumAdd" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center">
             <TextBox.Background>
                 <SolidColorBrush Color="#FFF06B0F" Opacity="0.495"/>
             </TextBox.Background>
         </TextBox>
 
-        <Label Content="Email: " Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="74" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
-        <TextBox x:Name="emailAdd" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center">
+        <Label Content="Email: " Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Height="24" Width="auto" HorizontalContentAlignment="Right" Background="#FF0A4364" Foreground="White"/>
+        <TextBox  x:Name="emailAdd" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="24" Width="148" VerticalContentAlignment="Center">
             <TextBox.Background>
                 <SolidColorBrush Color="#FFF06B0F" Opacity="0.5"/>
             </TextBox.Background>
@@ -65,5 +65,5 @@
         <Button  x:Name="Add_Button"  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Content="Add" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top" Width="75" Click="Add_Button_Click" Background="#FFF07715" Foreground="White"/>
 
     </Grid>
-   
+
 </Window>

@@ -91,7 +91,6 @@ namespace FinalProjDotNet
 
         }
 
-
         private void SaveFile_Click(object sender, RoutedEventArgs e)
         {
             //opens a window where the user can save the current fields odf the datagrid in a csv document
@@ -184,8 +183,11 @@ namespace FinalProjDotNet
             IList row = myDataGrid.SelectedItems;
             foreach (ContactsCreator c in row)
             {
+                editWindow.idEdit.Text = c.Id.ToString();
                 editWindow.fNameEdit.Text = c.FirstName;
                 editWindow.lNameEdit.Text = c.LastName;
+                editWindow.pNumEdit.Text = c.PhoneNum;
+                editWindow.emailEdit.Text = c.Email;
             }
 
             //check if any row was selected at all
@@ -199,15 +201,7 @@ namespace FinalProjDotNet
                 editWindow.Close();
             }
         }
-
-        // updates the data in the dataGrid with the new data from the DataBase
-        public void UpdateData()
-        {
-            contacts = DBC.getData();
-            myDataGrid.ItemsSource = null;
-            myDataGrid.ItemsSource = contacts;
-        }
-
+        
         public void View()
         {
             
@@ -219,8 +213,8 @@ namespace FinalProjDotNet
             {
                 secondWindow.firstName.Content = c.FirstName;
                 secondWindow.lastName.Content = c.LastName;
-                secondWindow.phoneNumber.Content = c.FirstName;
-                secondWindow.email.Content = c.LastName;
+                secondWindow.phoneNumber.Content = PhoneNumFormat(c.PhoneNum) ;
+                secondWindow.email.Content = c.Email;
             }
 
             //check if any row was selected at all
@@ -234,5 +228,23 @@ namespace FinalProjDotNet
                 secondWindow.Close();
             }
         }
+
+        public string PhoneNumFormat(string phoneNum)
+        {
+            string pn1 = phoneNum.Substring(0, 3);
+            string pn2 = phoneNum.Substring(3, 3);
+            string pn3 = phoneNum.Substring(6, 4);
+            string phoneNumstr = "(" + pn1 + ") " + pn2 + "-" + pn3;
+            return phoneNumstr;
+        }
+
+        // updates the data in the dataGrid with the new data from the DataBase
+        public void UpdateData()
+        {
+            contacts = DBC.getData();
+            myDataGrid.ItemsSource = null;
+            myDataGrid.ItemsSource = contacts;
+        }
+
     }
 }

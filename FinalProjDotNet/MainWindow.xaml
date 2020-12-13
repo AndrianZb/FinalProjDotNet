@@ -9,7 +9,6 @@
         Title="MainWindow" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" Height="550" Width="535" MinHeight="550" MinWidth="535" MaxHeight="550" MaxWidth="535">
 
     <Window.Resources>
-        
     </Window.Resources>
     
     <Grid>
@@ -22,20 +21,21 @@
             <Style TargetType="Button">
                 <Setter Property="Background" Value="Black"/>
                 <Setter Property="Foreground" Value="#FF0068FF"/>
-                <Setter Property="Height" Value="50"/>
-                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Width" Value="75"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontSize" Value="18"/>
                 <Setter Property="BorderBrush" Value="#FF0C00FF"/>
                 <Setter Property="BorderThickness" Value="1,1,1,1"/>
-                <Setter Property="Width" Value="100"/>
                 <Setter Property="VerticalAlignment" Value="center"/>
-                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
             </Style>
         </Grid.Resources>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="0.4*" />
         </Grid.ColumnDefinitions>
         
         <Grid.RowDefinitions>
@@ -45,7 +45,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="4*" />
+            <RowDefinition Height="5.5*" />
         </Grid.RowDefinitions>
         
         <Image wpfanimated:ImageBehavior.AnimatedSource="bg2.gif"
@@ -61,11 +61,10 @@
             </MenuItem>
         </Menu>
 
-        <Button x:Name="Add" Grid.Column="2" Grid.Row="2" Content="Add" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="Add_Click" >
-        </Button>
-        <Button x:Name="view" Grid.Column="2" Grid.Row="3"  Content="View" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="View_Click"/>
-        <Button x:Name="Delete" Grid.Column="2" Grid.Row="4" Content="Delete" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="Delete_Click"/>
-        <Button x:Name="Edit" Grid.Column="2" Grid.Row="5" Content="Edit" HorizontalAlignment="Right" Margin="5,5,10,5" VerticalAlignment="Center" Width="100" Click="Edit_Click"/>
+        <Button x:Name="Add" Grid.Column="2" Grid.Row="2" Content="Add" Margin="5" Click="Add_Click" />
+        <Button x:Name="view" Grid.Column="2" Grid.Row="3"  Content="View" Margin="5" Click="View_Click"/>
+        <Button x:Name="Delete" Grid.Column="2" Grid.Row="4" Content="Delete" Margin="5" Click="Delete_Click"/>
+        <Button x:Name="Edit" Grid.Column="2" Grid.Row="5" Content="Edit" Margin="5" Click="Edit_Click"/>
 
         <DataGrid SelectionMode="single" 
                   Name="myDataGrid"
@@ -79,10 +78,9 @@
                   IsReadOnly="True" 
                   Margin="10" 
                   VerticalAlignment="Top"  
-                  FontSize="20" 
-                  Width="394" 
+                  FontSize="18" 
+                  Width="420" 
                   Foreground="#FFB27200" 
-                  FontWeight="Bold" 
                   HeadersVisibility="Column" 
                   BorderBrush="Orange" 
                   BorderThickness="2"
@@ -97,13 +95,18 @@
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Black"/>
                     <Setter Property="BorderBrush" Value="Orange"/>
-                    <Setter Property="BorderThickness" Value="0,0,0,2"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
             </DataGrid.Resources>
 
+            <!-- no max width for grid columns so that the user can see string up to 50 char and email up to 150 char-->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="firstName" Header="First Name" Binding="{Binding FirstName}" Width="195"  MaxWidth="195" MinWidth="195"/>
-                <DataGridTextColumn x:Name="lastName" Header="Last Name" Binding="{Binding LastName}" Width="195" MaxWidth="195" MinWidth="195"/>
+                <DataGridTextColumn x:Name="id" Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn x:Name="firstName" Header=" First Name" Binding="{Binding FirstName}" Width="207" MinWidth="207"/>
+                <DataGridTextColumn x:Name="lastName" Header=" Last Name" Binding="{Binding LastName}" Width="207" MinWidth="207"/>
+                <DataGridTextColumn x:Name="phoneNum" Binding="{Binding PhoneNum}" Visibility="Hidden"/>
+                <DataGridTextColumn x:Name="email" Binding="{Binding Email}" Visibility="Hidden"/>
             </DataGrid.Columns>
         </DataGrid>
         
