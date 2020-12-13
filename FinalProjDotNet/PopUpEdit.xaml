@@ -6,23 +6,43 @@
         xmlns:local="clr-namespace:FinalProjDotNet"
         mc:Ignorable="d"
         Title="PopUpEdit" Height="300" Width="300">
+
+
+
     <Grid>
-        <Label Content="Edit Contact" HorizontalAlignment="Left" Margin="101,18,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Edit Contact" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top" Background="Black" Foreground="#FFFFF9F9"/>
         <TextBox x:Name="idEdit" HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148" Visibility="Hidden"/>
 
-        <Label Content="First Name: " HorizontalAlignment="Left" Margin="24,56,0,0" VerticalAlignment="Top" Height="24" Width="74"/>
-        <TextBox x:Name="fNameEdit" HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148"/>
+        <Label Content="First Name: " HorizontalAlignment="Left" Margin="24,56,0,0" VerticalAlignment="Top" Height="24" Width="74"  Background="#FF0A4364" Foreground="White"/>
+        <TextBox x:Name="fNameEdit" HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </TextBox.Background>
+        </TextBox>
 
-        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top" Height="25" Width="82"/>
-        <TextBox x:Name="lNameEdit" HorizontalAlignment="Left" Margin="120,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="25" Width="148"/>
+        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top" Height="25" Width="82"  Background="#FF0A4364" Foreground="White"/>
+        <TextBox x:Name="lNameEdit" HorizontalAlignment="Left" Margin="120,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="25" Width="148">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </TextBox.Background>
+        </TextBox>
 
-        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="24,153,0,0" VerticalAlignment="Top" Height="24" Width="96"/>
-        <TextBox x:Name="pNumEdit" HorizontalAlignment="Left" Margin="120,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148"/>
+        <Label Content="Phone Number: " HorizontalAlignment="Left" Margin="24,153,0,0" VerticalAlignment="Top" Height="24" Width="96"  Background="#FF0A4364" Foreground="White"/>
+        <TextBox x:Name="pNumEdit" HorizontalAlignment="Left" Margin="120,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </TextBox.Background>
+        </TextBox>
 
-        <Label Content="Email: " HorizontalAlignment="Left" Margin="24,197,0,0" VerticalAlignment="Top" Height="24" Width="74"/>
-        <TextBox x:Name="emailEdit" HorizontalAlignment="Left" Margin="120,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148"/>
+        <Label Content="Email: " HorizontalAlignment="Left" Margin="24,197,0,0" VerticalAlignment="Top" Height="24" Width="74"  Background="#FF0A4364" Foreground="White"/>
+        <TextBox x:Name="emailEdit" HorizontalAlignment="Left" Margin="120,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="148">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
+            </TextBox.Background>
+        </TextBox>
 
-        <Button x:Name="Edit_Button" Content="Edit" HorizontalAlignment="Left" Margin="212,239,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.862,0.546" Click="Edit_Button_Click"/>
+        <Button x:Name="Edit_Button" Content="Edit" HorizontalAlignment="Left" Margin="212,239,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.862,0.546" Click="Edit_Button_Click" Background="#FFF07715" Foreground="White"/>
 
     </Grid>
 </Window>
