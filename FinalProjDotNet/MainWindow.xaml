@@ -76,7 +76,7 @@
                   HorizontalAlignment="Center" 
                   Height="auto" 
                   IsReadOnly="True" 
-                  Margin="10" 
+                  Margin="15,10,10,10" 
                   VerticalAlignment="Top"  
                   FontSize="18" 
                   Width="420" 

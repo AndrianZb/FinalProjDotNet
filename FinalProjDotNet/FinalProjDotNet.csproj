@@ -146,5 +146,11 @@
   <ItemGroup>
     <Resource Include="bg2.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="moto.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="boom.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
