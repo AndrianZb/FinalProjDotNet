@@ -137,12 +137,21 @@ namespace FinalProjDotNet
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            IList row = myDataGrid.SelectedItems;
-            foreach (ContactsCreator c in row)
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Confirmation", MessageBoxButton.YesNo);
+            switch (result)
             {
-                DBC.Delete(c.Id);
-            }
-            UpdateData();
+                case MessageBoxResult.No:
+                    MessageBox.Show("Contact not deleted", "Alert");
+                    break;
+                case MessageBoxResult.Yes:
+                    IList row = myDataGrid.SelectedItems;
+                    foreach (ContactsCreator c in row)
+                    {
+                        DBC.Delete(c.Id);
+                    }
+                    UpdateData();
+                    break;
+            }       
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
