@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FinalProjDotNet"
         xmlns:wpfanimated="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="PopUpView" Height="300" Width="324.344" Background="#FFBDBDBD">
+        Title="PopUpView" Height="300" Width="324.344" Background="#FFBDBDBD" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
@@ -19,6 +19,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
         <Image wpfanimated:ImageBehavior.AnimatedSource="boom.gif"
@@ -53,5 +54,7 @@
                 <SolidColorBrush Color="#FFF07715" Opacity="0.5"/>
             </Label.Background>
         </Label>
+        <Button x:Name="ViewClose_Button" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Content="Close" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top" Width="75" Background="#FFF07715" Foreground="White" Click="ViewClose_Button_Click"/>
+
     </Grid>
 </Window>

@@ -27,7 +27,8 @@ namespace FinalProjDotNet
             InitializeComponent();
         }
 
-        private void Add_Button_Click(object sender, RoutedEventArgs e)
+       
+            private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             Regex phoneCheck = new Regex(@"^\d{10}$");
             Regex emailCheck = new Regex(@"^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$");
@@ -80,8 +81,14 @@ namespace FinalProjDotNet
                 contact = DBC.getData();
                 ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = null;
                 ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = contact;
+                MainWindow.isAvailable = true;
                 Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow.isAvailable = true;
         }
     }
 }

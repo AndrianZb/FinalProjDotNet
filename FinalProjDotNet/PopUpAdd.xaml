@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FinalProjDotNet"
         xmlns:wpfanimated="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="PopUpAdd" Height="300" Width="356.344" Background="#FFBDBDBD">
+        Title="PopUpAdd" Height="300" Width="356.344" Background="#FFBDBDBD" Closing="Window_Closing">
 
     <Grid>
 

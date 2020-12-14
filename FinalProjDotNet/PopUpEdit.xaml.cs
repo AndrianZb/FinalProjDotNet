@@ -74,16 +74,22 @@ namespace FinalProjDotNet
             }
             else
             {
-            int id = int.Parse(idEdit.Text);
+                int id = int.Parse(idEdit.Text);
 
-            string[] arr = { fNameEdit.Text, lNameEdit.Text, pNumEdit.Text, emailEdit.Text };
-            DBC.Add(arr);
-            DBC.Delete(id);
-            contact = DBC.getData();
-            ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = null;
-            ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = contact;
-            Close();
+                string[] arr = { fNameEdit.Text, lNameEdit.Text, pNumEdit.Text, emailEdit.Text };
+                DBC.Add(arr);
+                DBC.Delete(id);
+                contact = DBC.getData();
+                ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = null;
+                ((MainWindow)Application.Current.MainWindow).myDataGrid.ItemsSource = contact;
+                MainWindow.isAvailable = true;
+                Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow.isAvailable = true;
         }
     }
 }

@@ -23,5 +23,16 @@ namespace FinalProjDotNet
         {
             InitializeComponent();
         }
+
+        private void ViewClose_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.isAvailable = true;
+            Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow.isAvailable = true;
+        }
     }
 }
