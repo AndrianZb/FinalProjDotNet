@@ -174,7 +174,6 @@ namespace FinalProjDotNet
                                 DBC.Delete(c.Id);
                             }
                             UpdateData();
-                            isAvailable = false;
                             break;
                     }
                 }
